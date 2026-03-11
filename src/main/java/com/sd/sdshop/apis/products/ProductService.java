@@ -48,4 +48,13 @@ public class ProductService {
         Products product = productRepocitory.findByProductId(id);
         return new ProductResponseDTO(product.getProductId(),product.getProductName(),product.getProductImage(),product.getProductQuantity(),product.getProductDescription(),product.getProductPrice(),product.getActualPrice(),product.getDiscount());
     }
+
+    public Boolean deleteproduct(String id) {
+        Products product = productRepocitory.findByProductId(id);
+        if(product != null){
+            productRepocitory.deleteByProductId(id);
+            return true;
+        }
+        return false;
+    }
 }
