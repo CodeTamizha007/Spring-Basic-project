@@ -19,6 +19,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET,"/api/product/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/products").permitAll()  // open your APIs
+                        .requestMatchers(HttpMethod.GET,"/register").permitAll()  // open your APIs
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults()); // keep basic auth if you want
